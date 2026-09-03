@@ -42,6 +42,18 @@ fun main() {
     } else {
         println("No tiene beneficio de socio")
     }
+
+    val consola = Consola(
+        codigo = "CC12CD",
+        marca = "Sony",
+        modelo = "PlayStation 5",
+        tipoUsuario = "socio"
+    )
+
+    println(consola.codigo)
+    println(consola.marca)
+    println(consola.modelo)
+    println(consola.tipoUsuario)
 }
 
 fun calcularCostoBase(
