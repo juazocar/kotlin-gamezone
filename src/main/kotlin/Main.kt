@@ -31,6 +31,17 @@ fun main() {
     println("Costo base: $costoBase")
     println("Total con IVA: $totalConIva")
 
+    val tipoUsuario = "socio"
+    val monto = 10000.0
+    println(aplicarBeneficioUsuario(monto, "infantil"))
+    println(aplicarBeneficioUsuario(monto, "socio"))
+    println(aplicarBeneficioUsuario(monto, "educacional"))
+
+    if (tipoUsuario == "socio") {
+        println("Tiene beneficio de socio")
+    } else {
+        println("No tiene beneficio de socio")
+    }
 }
 
 fun calcularCostoBase(
@@ -42,4 +53,26 @@ fun calcularCostoBase(
 
 fun aplicarIva(monto: Double): Double {
     return monto * 1.19
+}
+
+fun describirTipoUsuario(tipoUsuario: String): String {
+    return when (tipoUsuario) {
+        "infantil" -> "Usuario infantil"
+        "socio" -> "Usuario socio"
+        "educacional" -> "Usuario educacional"
+        else -> "Tipo de usuario inválido"
+    }
+}
+
+fun aplicarBeneficioUsuario(
+    monto: Double,
+    tipoUsuario: String
+): Double {
+
+    return when (tipoUsuario) {
+        "socio" -> monto * 0.80
+        "educacional" -> monto * 0.50
+        "infantil" -> monto
+        else -> monto
+    }
 }
